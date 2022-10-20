@@ -51,4 +51,17 @@ class Stack02Test {
         stack02.pop();
         assertTrue(stack02.isEmpty());
     }
+
+    @Test
+    @DisplayName("peek?")
+    void peek(){
+        Stack02 stack02 = new Stack02();
+        assertThrows(RuntimeException.class, ()->{
+            stack02.peek();
+        });
+
+        stack02.push(10);
+        assertEquals(10, stack02.peek());
+
+    }
 }

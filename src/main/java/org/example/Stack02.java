@@ -35,4 +35,8 @@ public class Stack02 {
             return false;
         }
     }
+
+    public int peek() {
+        return this.arr[this.pointer];
+    }
 }
