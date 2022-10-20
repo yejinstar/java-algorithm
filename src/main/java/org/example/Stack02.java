@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.EmptyStackException;
+
 public class Stack02 {
     private Integer[] arr;
     private int pointer = -1;
@@ -17,9 +19,20 @@ public class Stack02 {
     }
 
     public int pop() {
+        if(isEmpty()){
+            throw new RuntimeException("Stack is empty");
+        }
         return this.arr[this.pointer--];
     }
     public Integer[] getArr(){
         return arr;
+    }
+
+    public boolean isEmpty() {
+        if (this.pointer == -1){
+            return true;
+        } else{
+            return false;
+        }
     }
 }

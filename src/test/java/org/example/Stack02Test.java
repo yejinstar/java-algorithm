@@ -32,5 +32,23 @@ class Stack02Test {
 
         assertEquals(20,stack02.pop());
         assertEquals(10,stack02.pop());
+        // 스택이 비어있었을 땐 ?
+        // Exception 예외의 검증
+        assertThrows(RuntimeException.class, ()->{
+            stack02.pop();    
+        });
+        
+    }
+
+    @Test
+    @DisplayName("isEmpty?")
+    void isEmpty(){
+        Stack02 stack02 = new Stack02();
+
+        assertTrue(stack02.isEmpty());
+        stack02.push(10);
+        assertFalse(stack02.isEmpty());
+        stack02.pop();
+        assertTrue(stack02.isEmpty());
     }
 }
