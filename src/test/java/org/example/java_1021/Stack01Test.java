@@ -1,4 +1,4 @@
-package org.example;
+package org.example.java_1021;
 
 import org.example.java_1021.Stack01;
 import org.junit.jupiter.api.Assertions;
