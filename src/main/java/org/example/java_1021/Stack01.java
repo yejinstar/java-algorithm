@@ -1,4 +1,4 @@
-package org.example;
+package org.example.java_1021;
 
 public class Stack01 {
     private int[] arr = new int[10000];

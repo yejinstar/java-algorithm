@@ -1,9 +1,8 @@
 package org.example;
 
+import org.example.java_1021.Stack01;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class Stack01Test {
 
