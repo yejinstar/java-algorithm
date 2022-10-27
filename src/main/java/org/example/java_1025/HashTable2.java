@@ -1,18 +1,33 @@
 package org.example.java_1025;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-public class HashTable {
-    private int size = 10000;
-    private int[] table = new int[size];
+public class HashTable2 {
 
-    public HashTable() {
+    class Node{
+        private String key;
+        private Integer value;
+
+        public Node(String key, Integer value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public String getKey() {
+            return key;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
     }
+    private int size = 1000;
+    private List<Node>[] table = new ArrayList[1000];
 
-    public HashTable(int size) {
-        this.size = size;
-        this.table = new int[size];
+    public HashTable2() {
     }
 
     public int hash(String key) {
@@ -24,12 +39,22 @@ public class HashTable {
     }
 
     public void insert(String key, int value){
-        this.table[hash(key)] = value;
-        System.out.printf("#%s-room %s insert success\n",hash(key), key);
+        int hashIdx = hash(key);
+        if(this.table[hashIdx] == null){
+            this.table[hashIdx] = new ArrayList<>();
+        }
+        this.table[hashIdx].add(new Node(key,value));
     }
 
-    public int search(String key){
-        return this.table[hash(key)];
+    public Integer get(String key){
+        List<Node> nodes = this.table[hash(key)];
+        for (Node node:nodes
+             ) {
+            if(key.equals(node.getKey())){
+                return node.value;
+            }
+        }
+        return null;
     }
 
     public static void main(String[] args) {
@@ -39,13 +64,20 @@ public class HashTable {
                 "HyeongsangOh", "SuinWoo", "JuwanWoo", "InkyuYoon", "GahyunLee", "DaonLee", "DohyunLee", "SanghunLee", "SujinLee", "AjinLee", "YeonJae", "HyeonjuLee", "HakjunYim", "SeoyunJang", "SeohyeonJang", "JinseonJang", "SujinJeon", "SeunghwanJeon", "DaehwanJung", "JaeHyunJeung", "HeejunJeong", "GukhyeonCho", "MunjuJo", "YejiJo", "ChanminJu", "MinjunChoi", "SujeongChoi", "SeunghoChoi", "AyeongChoi", "GeonjooHan", "JinhyuckHeo", "MinwooHwang", "SieunHwang",
                 "JunhaHwang"};
 
-        HashTable ht = new HashTable(200);
-        Set<Integer> nameSet = new HashSet<>();
+        HashTable2 ht = new HashTable2();
+
         for (int i = 0; i < names.length; i++) {
             ht.insert(names[i], ht.hash(names[i]));
         }
 
-        System.out.println(ht.search("Seoyoon"));
-        System.out.println(ht.search("Yoonseo"));
+        int sum = 0;
+        for (int i = 0; i < names.length; i++) {
+            if(ht.get(names[i]) != null){
+                sum += 1;
+            }
+        }
+        System.out.println(sum);
+        System.out.println(ht.get("Seoyoon"));
+        System.out.println(ht.get("Yoonseo"));
     }
 }
