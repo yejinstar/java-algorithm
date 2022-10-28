@@ -1,9 +1,7 @@
-package org.example.java_1025;
+package org.example.hash;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class HashTable2 {
 

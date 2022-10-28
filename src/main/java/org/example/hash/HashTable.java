@@ -1,4 +1,4 @@
-package org.example.java_1025;
+package org.example.hash;
 
 import java.util.HashSet;
 import java.util.Set;
