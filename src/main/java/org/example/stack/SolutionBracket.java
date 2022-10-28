@@ -1,4 +1,4 @@
-package org.example.java_1021;
+package org.example.stack;
 
 import java.util.Stack;
 

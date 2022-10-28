@@ -1,6 +1,4 @@
-package org.example.java_1021;
-
-import java.util.EmptyStackException;
+package org.example.stack;
 
 public class Stack02 {
     private Integer[] arr;
