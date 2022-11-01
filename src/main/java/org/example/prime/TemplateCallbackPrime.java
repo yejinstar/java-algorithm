@@ -20,6 +20,18 @@ public class TemplateCallbackPrime {
 
     public static void main(String[] args) {
         TemplateCallbackPrime tcp = new TemplateCallbackPrime();
-        System.out.println(tcp.isPrime(13));
+        System.out.println(tcp.isPrime(13, new StatementStrategy() {
+            @Override
+            public boolean compare(int a, int b) {
+                return a * a < b;
+            }
+        }));
+
+        System.out.println(tcp.isPrime(17, new StatementStrategy() {
+            @Override
+            public boolean compare(int a, int b) {
+                return a < b/2;
+            }
+        }));
     }
 }
