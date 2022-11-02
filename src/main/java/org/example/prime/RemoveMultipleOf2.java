@@ -1,8 +1,5 @@
 package org.example.prime;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class RemoveMultipleOf2 {
 
     public int solution(int n) {
