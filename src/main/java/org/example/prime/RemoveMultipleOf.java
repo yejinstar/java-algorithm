@@ -16,9 +16,14 @@ public class RemoveMultipleOf {
         }
 
         //출력
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+        for (int i = 2; i*i <= n; i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if(list.get(j)%i == 0 && list.get(j) > i){
+                    list.remove(j);
+                }
+            }
         }
+        answer = list.size();
 
         return answer;
     }
