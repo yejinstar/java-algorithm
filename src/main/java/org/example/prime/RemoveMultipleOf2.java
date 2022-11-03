@@ -15,8 +15,8 @@ public class RemoveMultipleOf2 {
         }
         // 루트n 만큼 돌리면서 배수들 false 처리하기
         for (int i = 2; i*i <= n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(arrN[j]%i == 0 && arrN[j] > i){
+            for (int j = i-2; j < n; j+=i) {
+                if(arrN[j] > i){
                     arrCheck[j] = false;
                     System.out.printf("%d ", arrN[j]); // 소수의 배수들 출력해보기
                 }
