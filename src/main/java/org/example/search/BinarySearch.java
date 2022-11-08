@@ -9,24 +9,26 @@ public class BinarySearch {
         int n = sc.nextInt();
         int target = sc.nextInt();
         int[] nums = new int[n];
-        System.out.println("n : "+ n+ " target : "+target);
+        System.out.println("n : " + n + " target : " + target);
         for (int i = 0; i < n; i++) {
             nums[i] = sc.nextInt();
         }
         System.out.println(Arrays.toString(nums));
-        int idx = -1;
-        int middle = n/2;
-        boolean flag = false;
-        while(!flag){
-            if (nums[middle] == target) {
-                idx = middle;
-            } else if (nums[middle]<target) {
-                middle /= 2;
-                continue;
-            } else{
-                middle += middle / 2;
+
+        int startIdx = 0;
+        int midIdx;
+        int endIdx = n - 1;
+        while (startIdx <= endIdx) {
+            midIdx = (startIdx + endIdx) / 2;
+            if (nums[midIdx] > target) {
+                endIdx = midIdx - 1;
+            } else if (nums[midIdx] < target) {
+                startIdx = midIdx + 1;
+            } else {
+                System.out.println(midIdx + 1);
+                break;
             }
         }
-        System.out.println(idx);
+
     }
 }
