@@ -12,23 +12,46 @@ public class SecretMap {
          * 4. 출력할 때 1인 곳은 #으로 표시해서 5번 출력한다.
          * */
 
-        //이진수로 바꾸는 로직
-        int a = 6;
-        int[] ans = new int[a / 2];
-        int idx = a/2-1;
-        while (a > 0) {
-            ans[idx--] = a % 2;
-            a /= 2;
+        /*String[] sArr1 = new String[n];
+        String[] sArr2 = new String[n];
+        for (int i = 0; i < n; i++) {
+            // arr1
+            for (int j = 0; j < n; j++) {
+                String binStr1 = getBinaryString(arr1[i]);
+                String binStr2 = getBinaryString(arr2[i]);
+                sArr1[i] = "0".repeat(n - binStr1.length()) + binStr1;
+                sArr2[i] = "0".repeat(n - binStr2.length()) + binStr2;
+            }
         }
-        System.out.println(Arrays.toString(ans));
+        System.out.println(Arrays.toString(sArr1));
+        System.out.println(Arrays.toString(sArr2));*/
+
+        answer = new String[n];
+        for (int i = 0; i < n; i++) {
+            answer[i] = Integer.toBinaryString(arr1[i] | arr2[i])
+                    .replace("1", "#")
+                    .replace("0", " ");
+            answer[i] = " ".repeat(n - answer[i].length()) + answer[i];
+
+        }
 
         return answer;
+
+    }
+
+    private String getBinaryString(int i) {
+        String ans = "";
+        while (i > 0) {
+            ans += i % 2;
+            i /= 2;
+        }
+        return ans;
     }
 
     public static void main(String[] args) {
         SecretMap secretMap = new SecretMap();
         int[] arr1 = {9, 29, 28, 18, 11};
         int[] arr2 = {30, 1, 21, 17, 28};
-        System.out.println(secretMap.solution(5, arr1, arr2));
+        System.out.println(Arrays.toString(secretMap.solution(5, arr1, arr2)));
     }
 }
