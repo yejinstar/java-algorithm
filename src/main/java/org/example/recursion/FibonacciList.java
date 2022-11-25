@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FibonacciList {
-    public static int fibo(int input) {
-        List<Integer> fibonacciNums = new ArrayList<>();
-        fibonacciNums.add(1);
-        fibonacciNums.add(1);
+    public static long fibo(int input) {
+        List<Long> fibonacciNums = new ArrayList<>();
+        fibonacciNums.add(1L);
+        fibonacciNums.add(1L);
         for (int i = 2; i < input; i++) {
             fibonacciNums.add(fibonacciNums.get(i - 1) + fibonacciNums.get(i - 2));
         }
