@@ -1,6 +1,6 @@
 package org.example;
 
-public class AlphabetPrintTestRecur {
+public class AlphabetPrintTestRecursion {
 
     public static void alphabetPrint(char C){
 
@@ -11,25 +11,25 @@ public class AlphabetPrintTestRecur {
         alphabetPrint((char)(C+1));
     }
 
-    public static void alphabetPrint2(char C, char two){
+    public static void alphabetPrintSecond(char C, char two){
         if (two > 'Z')
             return;
         System.out.printf("%c %c\n",C,two);
-        alphabetPrint2(C , (char)(two + 1));
+        alphabetPrintSecond(C , (char)(two + 1));
     }
 
-    public static void alphabetPrint3(char C){
+    public static void alphabetPrintFirst(char C){
 
         if (C > 'Z')
             return;
 
-        alphabetPrint2(C,'A');
-        alphabetPrint3((char)(C+1));
+        alphabetPrintSecond(C,'A');
+        alphabetPrintFirst((char)(C+1));
     }
 
     public static void main(String[] args) {
         alphabetPrint('A');
         System.out.println("-------------");
-        alphabetPrint3('A');
+        alphabetPrintFirst('A');
     }
 }
