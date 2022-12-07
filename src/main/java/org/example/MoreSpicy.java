@@ -11,6 +11,10 @@ public class MoreSpicy {
             pq.add(scoville[i]);
         }
         while (pq.peek() < K) {
+            if (pq.size() <= 1)
+            {
+                return -1;
+            }
             int mix = 0;
             mix += pq.poll();
             mix += pq.poll() * 2;
