@@ -1,5 +1,7 @@
 package org.example.dynamic;
 
+import java.util.Arrays;
+
 public class LCSTest {
 
     public static void LCS(String str1, String str2) {
@@ -16,6 +18,11 @@ public class LCSTest {
                         str1.charAt(j-1), dp[i][j]);
             }
         }
+
+        for (int i = 0; i <= str2.length(); i++) {
+            System.out.println(Arrays.toString(dp[i]));
+        }
+
     }
 
     public static void main(String[] args) {
